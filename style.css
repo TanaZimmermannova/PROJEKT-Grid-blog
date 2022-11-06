@@ -66,3 +66,144 @@ blockquote {
 	- https://www.smashingmagazine.com/2017/04/start-using-css-custom-properties/
 */
 
+article {
+	display: grid;
+	grid-template-columns: minmax(100px, 1fr) 4fr 2fr;
+	align-items: start;
+	gap: 40px;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+
+header {
+	grid-column: 2;
+}
+
+h1 {
+	color: var(--zelena);
+	font-size: 70px;
+}
+
+.meta {
+	color: var(--seda);
+	font-size: 16px;
+}
+
+p {
+	grid-column: 2;
+	margin: 0;
+}
+
+figure {
+	grid-column: 1 / span 3;
+	color: var(--seda);
+	margin: 0;
+}
+
+figure img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+blockquote {
+	grid-column: 1 / span 3;
+	color: var(--tmava);
+	font-size: 35px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+blockquote::before,
+blockquote::after {
+	content: " ";
+	display: block;
+	width: 200px;
+	height: 3px;
+	margin: 20px auto;
+	background-color: var(--limetka);
+}
+
+h2 {
+	grid-column: 2;
+	color: var(--limetka);
+	font-size: 60px;
+}
+
+.palacinky {
+	display: flex;
+	flex-direction: column;
+}
+
+.tip {
+	background-color: var(--svetla);
+	padding: 15px;
+	font-size: 16px;
+}
+
+.tip-vlevo {
+	grid-column: 1;
+	border-right: 3px solid var(--zluta);
+}
+
+.tip-vpravo {
+	grid-column: -2;
+	border-left: 3px solid var(--zluta);
+}
+
+footer {
+	grid-column: 2;
+	color: var(--seda);
+}
+
+footer a {
+	text-decoration: none;
+	color: var(--seda);
+}
+
+@media screen and (max-width: 860px) {
+	header, 
+	h2 {
+		grid-column: 1 / span 3;
+	}
+}
+
+@media screen and (max-width: 670px) {
+	article {
+		grid-template-columns: 1fr;
+		gap: 25px;
+	}
+
+	header,
+	p,
+	figure,
+	blockquote, 
+	.tip,
+	footer {
+		grid-column: 1;
+	}
+
+	h1,
+	h2 {
+		font-size: 50px;
+	}
+
+	blockquote {
+		font-size: 30px;
+	}
+
+	.tip {
+		border-left: none;
+		border-right: none;
+		border-top: 3px solid var(--zluta);
+	}
+
+	.palacinky {
+		flex-direction: row;
+	}
+
+	.palacinky img {
+		max-width: 50%;
+		margin-right: 20px;
+	}
+}
